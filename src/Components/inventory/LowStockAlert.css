@@ -1,0 +1,10 @@
+/* LowStockAlert.css */
+.low-stock-banner {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: #fef9c3; border: 1px solid #fde047;
+  border-radius: 12px; padding: 14px 18px; margin-bottom: 20px;
+}
+.low-stock-icon    { font-size: 20px; flex-shrink: 0; }
+.low-stock-content { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+.low-stock-content strong { color: #a16207; font-weight: 600; }
+.low-stock-names  { color: #92400e; font-size: 13px; }
