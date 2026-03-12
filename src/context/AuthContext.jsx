@@ -28,21 +28,14 @@ export function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
-  /* ── Role helpers ── */
   const isAdmin    = useCallback(() => user?.role === 'admin',    [user]);
   const isCashier  = useCallback(() => user?.role === 'cashier',  [user]);
   const isCustomer = useCallback(() => user?.role === 'customer', [user]);
 
-  /* ── Permission helpers ── */
-  // Only admin can add/edit/delete menu items
   const canManageMenu      = useCallback(() => isAdmin(), [isAdmin]);
-  // Admin & cashier can process (advance status) orders
   const canProcessOrder    = useCallback(() => isAdmin() || isCashier(), [isAdmin, isCashier]);
-  // Admin & cashier can view full inventory; cashier can adjust stock
   const canViewInventory   = useCallback(() => isAdmin() || isCashier(), [isAdmin, isCashier]);
-  // Only admin can do bulk restocks or full inventory management
   const canManageInventory = useCallback(() => isAdmin(), [isAdmin]);
-  // Only admin can manage users
   const canManageUsers     = useCallback(() => isAdmin(), [isAdmin]);
 
   return (
